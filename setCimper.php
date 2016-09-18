@@ -6,17 +6,22 @@
 
 	if($_SERVER['REQUEST_METHOD']=='POST'){
 		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$afiliation = $_POST['afiliation'];
 		$gaffete = $_POST['gaffete'];
+		$accept = $_POST['accept'];
 
 		// Use the database connection
 		require_once('dbConnect.php');
 
-		$sql = "UPDATE users SET gaffete = '$gaffete' WHERE id = $id;";
+		$sql = "UPDATE users SET name = '$name', afiliation_name = '$afiliation',  gaffete = '$gaffete', accept = '$accept' WHERE id = $id;";
 
 		if(mysqli_query($con,$sql)){
-			echo 'Asistente actualizado correctamente.';
+			//echo 'Asistente actualizado correctamente.';
+			echo $id;
 		}else{
-			echo 'No pudimos actualizar al asistente. Intente de nuevo.';
+			//echo 'No pudimos actualizar al asistente. Intente de nuevo.';
+			echo $id;
 		}
 
 		mysqli_close($con);
