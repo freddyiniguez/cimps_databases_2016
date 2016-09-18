@@ -9,7 +9,7 @@
 	// Get the database connection token
 	require_once('dbConnect.php');
 
-	$sql = "SELECT name, afiliation_name, gaffete, accept FROM user WHERE id=$id";
+	$sql = "SELECT * FROM users WHERE id=$id";
 
 	$r = mysqli_query($con,$sql);
 
