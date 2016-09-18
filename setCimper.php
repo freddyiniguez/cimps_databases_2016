@@ -17,11 +17,9 @@
 		$sql = "UPDATE users SET name = '$name', afiliation_name = '$afiliation',  gaffete = '$gaffete', accept = '$accept' WHERE id = $id;";
 
 		if(mysqli_query($con,$sql)){
-			//echo 'Asistente actualizado correctamente.';
-			echo $id;
+			echo 'Asistente actualizado correctamente.';
 		}else{
-			//echo 'No pudimos actualizar al asistente. Intente de nuevo.';
-			echo $id;
+			echo 'No pudimos actualizar al asistente. Intente de nuevo.';
 		}
 
 		mysqli_close($con);
