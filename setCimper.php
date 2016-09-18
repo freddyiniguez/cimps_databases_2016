@@ -14,9 +14,9 @@
 		$sql = "UPDATE users SET gaffete = '$gaffete' WHERE id = $id;";
 
 		if(mysqli_query($con,$sql)){
-			echo 'Assistant updated successfully';
+			echo 'Asistente actualizado correctamente.';
 		}else{
-			echo 'Could not update assistant, try again';
+			echo 'No pudimos actualizar al asistente. Intente de nuevo.';
 		}
 
 		mysqli_close($con);
