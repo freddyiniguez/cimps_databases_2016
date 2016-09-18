@@ -11,7 +11,7 @@
 		// Use the database connection
 		require_once('dbConnect.php');
 
-		$sql = "UPDATE user SET gaffete = '$gaffete' WHERE id = $id;";
+		$sql = "UPDATE users SET gaffete = '$gaffete' WHERE id = $id;";
 
 		if(mysqli_query($con,$sql)){
 			echo 'Assistant updated successfully';
