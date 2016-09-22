@@ -15,9 +15,15 @@
 
 	$result = array();
 	$row = mysqli_fetch_array($r);
+
+	// Convert accents into plain text
+	setlocale(LC_ALL, 'es_MX');
+	$clear_name = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',utf8_encode($row['name']));
+	$clear_afiliation_name = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE',utf8_encode($row['afiliation_name']));
+
 	array_push($result,array(
-			"name"=>$row['name'],
-			"afiliation"=>$row['afiliation_name'],
+			"name"=>$clear_name,
+			"afiliation"=>$clear_afiliation_name,
 			"gaffete"=>$row['gaffete'],
 			"accept"=>$row['accept']
 		));
