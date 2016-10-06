@@ -2,7 +2,7 @@
 
      	// This file is intented to acquire some information from an assistant of the CIMPS
 
-        // So the first thing is to get the user id (which is previously scanned by the Android application via QR Code) and then create a SQL query and retrieve the information
+        // So the first thing is to get the user id (which is previously scanned by the Android application via QR Code) and then create a SQL query an$
 
         $id = $_GET['id'];
 
@@ -21,6 +21,12 @@
         $result2 = array();
         $row2 = mysqli_fetch_array($r2);
 
+        // Get the payment information from the assistant
+        $sql3 = "SELECT * FROM `order` WHERE users_id=$id";
+        $r3 = mysqli_query($con,$sql3);
+        $result3 = array();
+        $row3 = mysqli_fetch_array($r3);
+
         // Convert accents into plain text
         setlocale(LC_ALL, 'es_MX');
         $clear_name = iconv('UTF-8','ASCII//TRANSLIT//IGNORE',utf8_encode($row['name']));
@@ -31,7 +37,7 @@
                         "afiliation"=>$clear_afiliation_name,
                         "category"=>$row2['name'],
                         "gaffete"=>$row['gaffete'],
-                        "accept"=>$row['accept']
+                        "accept"=>$row3['accepted']
                 ));
 
         echo json_encode(array('result'=>$result));
